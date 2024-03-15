@@ -19,5 +19,11 @@ SELECT table_name
 FROM user_tables;
 WHERE USER = sys
 
+alter session set "_ORACLE_SCRIPT"=true;
+create user empleados_crud identified by admin;
+grant dba to empleados_crud;
+GRANT CREATE TABLE TO empleados_crud;
+GRANT CREATE SEQUENCE TO empleados_crud;
+
 
 
