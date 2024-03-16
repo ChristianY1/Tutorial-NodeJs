@@ -1,14 +1,17 @@
-const express = require('express');
+const express = require("express");
+const cors = require("cors");
 
-// No se necesario poner hasta index.js porque 
-// se reconoce el archivo que se llame index 
-const v1Router = require('./v1/routes')
+
+const v1WorkoutRouter = require("./v1/routes/workoutRoutes");
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 3000;
 
-app.use("/api/v1", v1Router);
 
-app.listen(PORT, ()=>{
-    console.log(`Server listening on port ${PORT}`)
-})
+
+app.use("/api/v1/workouts", v1WorkoutRouter);
+
+app.listen(PORT, () => {
+  console.log(`API is listening on port ${PORT}`);
+});
